@@ -4,53 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <title>Home</title>
 </head>
 <body>
+    <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">TravelWay</a>
+          <a class="navbar-brand" href="#" style="font-family: 'Great Vibes'; font-size: 30px;">Travel Way</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#" style="color: white;">Home</a>
+                <a class="nav-link active" aria-current="page" href="home.html" style="color: white;">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Destinations</a>
+                <a class="nav-link" href="pages/destinations.html">Destinations</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
+                <a class="nav-link" href="pages/about.html">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact Us</a>
+                <a class="nav-link" href="pages/contact.html">Contact Us</a>
               </li>
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <button class="btn btn-outline-light">Sign In</button>
-                    <button class="btn btn-outline-light">Sign Up</button>
+                  <i class="fas fa-user me-3" style="color: white; font-size: 2.5rem;"></i>
                 </li>
             </ul>
           </div>
         </div>
     </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Embark on a Journey of Discovery</h5>
-                        <p class="card-text">
-                            Embark on a journey of discovery and wonder with our travel experiences. Uncover the hidden gems of the world, from sun-kissed beaches to vibrant cityscapes. Immerse yourself in diverse cultures, savoring the unique flavors and traditions each destination has to offer. Whether you seek the thrill of adventure or the serenity of a tranquil retreat, our curated travel experiences promise to create memories that last a lifetime. Let the world be your canvas, and let every destination be a stroke of inspiration on your grand tapestry of travel.
-                        </p>
-                    </div>
-                </div>
-            </div>
+    <!-- Navbar Ends -->
+
+    <!-- Title Section Start -->
+    <div class="home-title">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md-8 offset-md-2 text-center">
+            <h1 id="title" class="display-4">Travel Way</h1>
+          </div>
         </div>
+        <div class="row">
+          <div class="col-md-10 offset-md-1 text-center">
+            <p class="lead">
+              Explore extraordinary adventures with Travelway, your premier gateway to unique experiences. We believe every journey is a story waiting to be told. Curating quality travel beyond the ordinary, Travelway is your trusted companion for thrilling horizons, serene retreats, and vibrant cultures. Embark on a journey where each destination becomes a chapter in your personal adventure tale. Let Travelway be your compass to the wonders of the world—your journey begins here.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
+    
+    <!--Title Section End -->
+
+    <!-- Content Section Start -->
+    <div class="content">
+      <div class="container">
+        <div class="row">
+          <div class="col-4">
+              <div class="card">
+                  <div class="card-body">
+                      <h5 class="card-title">Embark on a Journey of Discovery</h5>
+                      <p class="card-text">
+                          Embark on a journey of discovery and wonder with our travel experiences. Uncover the hidden gems of the world, from sun-kissed beaches to vibrant cityscapes. Immerse yourself in diverse cultures, savoring the unique flavors and traditions each destination has to offer. Whether you seek the thrill of adventure or the serenity of a tranquil retreat, our curated travel experiences promise to create memories that last a lifetime. Let the world be your canvas, and let every destination be a stroke of inspiration on your grand tapestry of travel.
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </div>
+    </div>
+
+
+    <!-- Content Section End -->
 </body>
 </html>

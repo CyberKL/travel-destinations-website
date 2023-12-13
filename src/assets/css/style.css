@@ -1,13 +1,16 @@
-body{
-    background-image: url(../img/background.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+*{
+  font-family: 'Roboto';
 }
 
 .navbar {
-    background-color: rgba(0, 0, 0, 0.5); /* Set the background color with alpha (transparency) */
+  background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,1)), url(../img/background.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
   }
   .navbar-brand {
     color: white; /* Set the text color to white */
@@ -27,4 +30,28 @@ body{
 
   .card-body {
     color: #000000; /* Set text color to white or a suitable contrast */
+  }
+  #title{
+    font-weight: bold;
+    font-family: 'Great Vibes';
+  }
+  .home-title{
+    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,1)), url(../img/background.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    color: white;
+  }
+  .home-title .lead{
+    text-shadow: 0px 0px 1px black;
+  }
+  .home-title .container{
+    padding-top: 20vh;
+  }
+
+
+  .content{
+    height: 100vh;
   }
