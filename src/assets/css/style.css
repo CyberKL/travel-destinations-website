@@ -1,0 +1,30 @@
+body{
+    background-image: url(../img/background.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.5); /* Set the background color with alpha (transparency) */
+  }
+  .navbar-brand {
+    color: white; /* Set the text color to white */
+  }
+
+  .navbar-nav .nav-link {
+    color: white; /* Set the text color to white */
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.5); /* Adjust the alpha channel for transparency */
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    backdrop-filter: blur(10px); /* Adjust the blur value for the glass effect */
+  }
+
+  .card-body {
+    color: #000000; /* Set text color to white or a suitable contrast */
+  }
