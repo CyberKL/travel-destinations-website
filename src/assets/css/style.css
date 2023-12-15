@@ -255,4 +255,10 @@
   }
   /* Login Modal End */
 
+  .errors{
+    color: red;
+    font-size: 10px;
+    margin-top: 7px;
+    width: 265px;
+}
  

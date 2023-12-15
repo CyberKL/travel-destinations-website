@@ -9,6 +9,7 @@
     <script defer src="assets/js/jquery.min.js"></script>
     <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
     <script defer src="assets/js/bootstrap.min.js"></script>
+    <script defer src="assets/js/home.js"></script>
     <title>Home | Rehla</title>
 </head>
 <body>
@@ -80,7 +81,6 @@
                   <i class="fas fa-envelope ms-1"></i>
                   <label for="inputEmail" class="form-label">Email address</label>
                   <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" required placeholder="name@example.com">
-                  <div id="emailHelp" class="form-text ms-2">We'll never share your email with anyone else.</div>
                 </div>
                 <div class="mb-3">
                   <i class="fas fa-key ms-1"></i>
@@ -98,7 +98,7 @@
       </div>
     <!-- Login End -->
 
-    <!-- Register Section Start-->
+    <!-- Register Section Start -->
     <div class="modal fade" id="register-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -107,26 +107,30 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form>
+            <form onsubmit="return validateForm()" novalidate>
               <div class="mb-3">
                 <i class="fas ms-1"></i>
-                <label for="inputName" class="form-label">Name</label>
-                <input type="text" class="form-control" id="inputName" required>
+                <label for="registerName" class="form-label">Name</label>
+                <input type="text" class="form-control" id="registerName" required onblur="filled(id,'nameError')" onfocus="style.borderColor = '#222';">
+                <div id="nameError" class="errors"></div>
               </div>
               <div class="mb-3">
                 <i class="fas fa-envelope ms-1"></i>
                 <label for="inputEmail" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" required placeholder="name@example.com">
+                <input type="email" class="form-control" id="registerEmail" aria-describedby="emailHelp" required placeholder="name@example.com" onblur="filled(id,'emailError')" onfocus="style.borderColor = '#222';">
+                <div id="emailError" class="errors"></div>
                 <div id="emailHelp" class="form-text ms-2">We'll never share your email with anyone else.</div>
               </div>
               <div class="mb-3">
                 <i class="fas fa-key ms-1"></i>
-                <label for="inputPassword" class="form-label">Password</label>
-                <input type="password" class="form-control" id="inputPassword">
+                <label for="registerPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="registerPassword" onblur="filled(id,'passwordError')" onfocus="style.borderColor = '#222';">
+                <div id="passwordError" class="errors"></div>
               </div>
               <div class="mb-3">
-                <label for="inputConfirm" class="form-label ms-1">Confirm password</label>
-                <input type="password" class="form-control" id="inputConfirm">
+                <label for="registerConfirm" class="form-label ms-1">Confirm password</label>
+                <input type="password" class="form-control" id="registerConfirm" onblur="filled(id,'conPassError')" onfocus="style.borderColor = '#222';">
+                <div id="conPassError" class="errors"></div>
               </div>
               <button type="submit" class="btn btn-primary mb-2 w-100" id="register-btn">Register</button>
               <div class="foot">
