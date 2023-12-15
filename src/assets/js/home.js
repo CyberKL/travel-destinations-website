@@ -128,7 +128,7 @@ function validateForm(){
 
 function loginUser() {
     const email = document.getElementById('inputEmail').value;
-    const password = document.getElementById('exampleInputPassword1').value;
+    const password = document.getElementById('inputPassword').value;
   
     // Query the Dexie.js database to check if the user exists
     db.users
