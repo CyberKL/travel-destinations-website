@@ -6,9 +6,9 @@
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/popper.js"></script>
+    <script defer src="assets/js/jquery.min.js"></script>
+    <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
+    <script defer src="assets/js/bootstrap.min.js"></script>
     <title>Home | Rehla</title>
 </head>
 <body>
@@ -28,15 +28,17 @@
                 <a class="nav-link" href="pages/destinations.html">Destinations</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="pages/about.html">About Us</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="pages/contact.html">Contact Us</a>
+              </li>
+              <li class="nav-item d-md-none">
+                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#login-modal">Login</a>
               </li>
             </ul>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                  <i class="fas fa-user me-3" style="color: white; font-size: 2rem;"></i>
+                <li class="nav-item d-md-block d-none">
+                  <span type="button" class="btn-container" class="btn" data-bs-toggle="modal" data-bs-target="#login-modal">
+                    <i class="fas fa-user me-3" style="color: white; font-size: 2rem;"></i>
+                  </span>
                 </li>
             </ul>
           </div>
@@ -62,6 +64,80 @@
       </div>
     </div>
     <!--Title Section End -->
+
+    <!-- Login Start -->
+      <!-- Modal -->
+      <div class="modal fade" id="login-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5 ms-auto" id="staticBackdropLabel"><b>Login</b></h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <i class="fas fa-envelope ms-1"></i>
+                  <label for="inputEmail" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" required placeholder="name@example.com">
+                  <div id="emailHelp" class="form-text ms-2">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                  <i class="fas fa-key ms-1"></i>
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <button type="submit" class="btn btn-primary mb-2 w-100" id="login-btn">Login</button>
+                <div class="foot">
+                  <a href="#" class="register" data-bs-toggle="modal" data-bs-target="#register-modal">Don't have an account? Register here</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- Login End -->
+
+    <!-- Register Section Start-->
+    <div class="modal fade" id="register-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5 ms-auto" id="staticBackdropLabel"><b>Register</b></h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <i class="fas ms-1"></i>
+                <label for="inputName" class="form-label">Name</label>
+                <input type="text" class="form-control" id="inputName" required>
+              </div>
+              <div class="mb-3">
+                <i class="fas fa-envelope ms-1"></i>
+                <label for="inputEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" required placeholder="name@example.com">
+                <div id="emailHelp" class="form-text ms-2">We'll never share your email with anyone else.</div>
+              </div>
+              <div class="mb-3">
+                <i class="fas fa-key ms-1"></i>
+                <label for="inputPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="inputPassword">
+              </div>
+              <div class="mb-3">
+                <label for="inputConfirm" class="form-label ms-1">Confirm password</label>
+                <input type="password" class="form-control" id="inputConfirm">
+              </div>
+              <button type="submit" class="btn btn-primary mb-2 w-100" id="register-btn">Register</button>
+              <div class="foot">
+                <a href="#" class="register" data-bs-toggle="modal" data-bs-target="#login-modal">Already have an account? Login here</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Register Section End -->
 
     <!-- Info Section Start -->
     <div class="info mb-lg-5">

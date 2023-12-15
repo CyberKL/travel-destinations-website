@@ -235,3 +235,24 @@
     }
   }
   /* Tips Section End */
+
+  /* Login Modal Start */
+  input[type="email"], 
+  input[type="password"],
+  input[type="text"]{
+    width: 265px;
+    height: 30px;
+    outline: none;
+    border: 0.5px solid #222;
+    border-radius: 5px; 
+  }
+  .modal-body{
+    display: flex;
+    justify-content: center;
+  }
+  #emailHelp{
+    font-size: 12px;
+  }
+  /* Login Modal End */
+
+ 
