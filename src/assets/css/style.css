@@ -225,4 +225,13 @@
       font-size: 0.8rem;
     }    
   }
+  @media (max-height:720px) {
+    .destination{
+      margin-top: 50vh;
+      margin-bottom: 50vh;
+    }
+    .tips{
+      margin-bottom: 50vh;
+    }
+  }
   /* Tips Section End */
