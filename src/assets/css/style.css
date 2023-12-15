@@ -261,4 +261,10 @@
     margin-top: 7px;
     width: 265px;
 }
+#loginError{
+  width:265px;
+  margin-bottom: 7px;
+  color: red;
+  font-size: 13px;
+}
  
