@@ -1,3 +1,10 @@
+// Initialize Dexie.js and create a database
+const db = new Dexie('userDatabase');
+db.version(1).stores({
+  users: '++id, name, email, password' // ++id means auto-incremented primary key
+});
+
+
 function filled(id,errorId){
     inputElement=document.getElementById(id);
     if (inputElement.value!=""){
@@ -97,9 +104,52 @@ function validateForm(){
     const passwordValid = validatePassword();
     const passwordConValid = validatePasswordCon();
     if (nameValid && emailValid && passwordValid && passwordConValid){
+        const name = document.getElementById('registerName').value;
+        const email = document.getElementById('registerEmail').value;
+        const password = document.getElementById('registerPassword').value;
+
+        // Add user data to the Dexie.js database
+        db.users.add({ name, email, password })
+            .then(() => {
+                console.log('User added to the database!');
+                alert('Registration successful!');
+            })
+            .catch(error => {
+                console.error('Error adding user to the database:', error);
+                alert('Error registering user: ' + error);
+            });
+
         return true
     }
     else{
         return false
     }
 }
+
+function loginUser() {
+    const email = document.getElementById('inputEmail').value;
+    const password = document.getElementById('exampleInputPassword1').value;
+  
+    // Query the Dexie.js database to check if the user exists
+    db.users
+      .where({ email, password })
+      .first()
+      .then(user => {
+        if (user) {
+          // User exists, perform login actions (e.g., navigate to a new page)
+          console.log('User Logged in!');
+          alert('Login successful!');
+        } else {
+          // User does not exist or credentials are incorrect
+          console.log('not logged!');
+          alert('Invalid email or password. Please try again.');
+        }
+      })
+      .catch(error => {
+        console.error('Error checking user credentials:', error);
+      });
+  
+    // Prevent the form from submitting
+    return false;
+  }
+  
