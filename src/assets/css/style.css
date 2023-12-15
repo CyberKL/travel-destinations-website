@@ -116,8 +116,9 @@
       opacity: 1;
     }
   }
-  @media (min-width:1200px) {
-    #test{
+
+  @media (min-width:1400px) {
+    #info-text{
       padding-top: 5rem;
     }
   }
@@ -127,13 +128,24 @@
     }  
   }
   @media (max-width:991.98px) {
-    .destination{
-      margin-top: 30vh;
+    .info{
+      margin-bottom: 40vh;
     }
   }
   @media (max-width:767.98px) {
-    .destination{
-      margin-top: 40vh;
+    .info{
+      margin-bottom: 50vh;
+    }
+    .tips{
+      margin-top: 120vh;
+    }
+    .tips{
+      margin-bottom: 50vh;
+    }
+    .tips .card{
+      margin-bottom: 15px;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
   @media (max-width:575.98px) {
@@ -142,20 +154,75 @@
     }
   }
   @media (max-width:500.98px) {
-    .destination{
-      margin-top: 50vh;
+    .info{
+      margin-bottom: 70vh;
+    }
+    .tips {
+      margin-top: 100vh;
     }
   }
   @media (max-width:429.98px) {
-    .destination{
-      margin-top: 80vh;
+    .info{
+      margin-bottom: 100vh;
     }
   }
   @media (max-width:363.98px) {
-    .destination{
-      margin-top: 100vh;
+    .info{
+      margin-bottom: 120vh;
+    }
+    .tips {
+      margin-top: 70vh;
     }
   }
   /* Destination Section End */
 
-  /* 
+  /* Tips Section Start */
+  .tips{
+    height: 60vh;
+  }
+  @media (min-width:992px){
+    .tips .card {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+  
+    .tips .card:hover {
+      transform: scale(1.05);
+    }
+  
+    .tips .card .img {
+      width: 100%;
+      height: auto;
+    }
+  
+    .tips .card-body {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+  
+    .tips .card:hover .card-body {
+      transform: translateY(0);
+    }
+  
+    .tips .card-text {
+      font-size: x-large;
+    }
+  }
+  @media (max-width:991.98px) {
+    .tips .card{
+      height: 30vh;
+      width: 30vh
+    }
+    .tips .card-text{
+      font-size: 0.8rem;
+    }    
+  }
+  /* Tips Section End */
