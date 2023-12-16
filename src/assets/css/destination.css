@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Rubik+Bubbles&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -45,7 +45,22 @@ body {
     .home-title .container{
       padding-top: 20vh;
     }
-
+    .page-header {
+      text-align: center;
+      padding: 2rem;
+  }
+  
+  .page-header h1 {
+    font-family:'Anton' ;
+      font-size: 3rem;
+      color: #3498db;
+      font-family: 'Rubik Doodle Shadow', sans-serif;
+  }
+  
+  .page-header p {
+      font-size: 1.6rem;
+      font-family: 'Rubik Doodle Shadow', sans-serif;
+  }
 /* Card element styling */
 .card {
     background: white;
@@ -74,10 +89,21 @@ body {
   font-size: 24px; 
   margin-left: 10px;
 }
+
 .icon-button:hover {
-  color: blue; 
+  color: rgb(30, 179, 129); 
 }
 
+.icon-container button.dislike.dislike-active i {
+  color: red;
+}
+
+.icon-container button.like.active i {
+  color: blue;
+}
+.icon-container button.bookmark.bookmark-active i {
+  color: green;
+}
 
 /* Styling for the background of the destination page */
 .destination-page {
