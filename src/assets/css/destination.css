@@ -86,3 +86,38 @@ body {
 .card-img-top {
   height: 400px; 
 }
+
+.errors{
+  color: red;
+  font-size: 10px;
+  margin-top: 7px;
+  width: 265px;
+}
+#loginError{
+width:265px;
+margin-bottom: 7px;
+color: red;
+font-size: 13px;
+}
+#userName{
+font-size: 25px;
+color: white;
+}
+/* Modal Start */
+input[type="email"], 
+input[type="password"],
+input[type="text"]{
+  width: 265px;
+  height: 30px;
+  outline: none;
+  border: 0.5px solid #222;
+  border-radius: 5px; 
+}
+.modal-body{
+  display: flex;
+  justify-content: center;
+}
+#emailHelp{
+  font-size: 12px;
+}
+/* Modal End */
