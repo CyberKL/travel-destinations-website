@@ -232,7 +232,7 @@ function loginUser() {
     document.getElementById('userName').style.display = 'block';
     document.getElementById('logoutIcon').style.display = 'block';
   });
-
+  
   function clearUserData() {
     db.users
       .clear()
