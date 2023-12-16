@@ -1,7 +1,6 @@
-// Initialize Dexie.js and create a database
 const db = new Dexie('userDatabase');
 db.version(1).stores({
-  users: '++id, name, email, password' // ++id means auto-incremented primary key
+  users: '++id, name, email, password'
 });
 
 
@@ -19,7 +18,7 @@ function validateName(){
     if (inputUser.value==""){
         document.getElementById("nameError").textContent =  "Please enter a name";
         document.getElementById("registerName").style.borderColor = "red";
-        return
+        return false;
     }
     if (inputUser.value.length<3||inputUser.value.length>25){
         document.getElementById("nameError").textContent ="Username must be between 3 and 25 characters";
@@ -31,27 +30,52 @@ function validateName(){
     }
 }
 
-function validateEmail(){
+function validateEmail() {
     let inputEmail = document.getElementById("registerEmail");
-    if (inputEmail.value==""){
-        document.getElementById("emailError").textContent =  "Please enter an email";
-        document.getElementById("registerEmail").style.borderColor = "red";
-        return
-    }
-    if (inputEmail.value==""||inputEmail.value.indexOf("@")==-1||inputEmail.value.indexOf(".")==-1){
-        document.getElementById("emailError").textContent = "Please enter a valid email e.g name@gmail.com";
-        document.getElementById("registerEmail").style.borderColor = "red";
+    let emailErrorElement = document.getElementById("emailError");
+    let email = inputEmail.value.trim();
+
+    if (email === "") {
+        emailErrorElement.textContent = "Please enter an email";
+        inputEmail.style.borderColor = "red";
         return false;
     }
-    else{
+
+    if (email.indexOf("@") === -1 || email.indexOf(".") === -1) {
+        emailErrorElement.textContent = "Please enter a valid email, e.g., name@gmail.com";
+        inputEmail.style.borderColor = "red";
+        return false;
+    }
+    else {
         return true;
+    }
+}
+
+async function isDuplicateEmail() {
+    let inputEmail = document.getElementById("registerEmail");
+    let emailErrorElement = document.getElementById("emailError");
+    let email = inputEmail.value.trim();
+
+    try {
+        let existingUser = await db.users.where('email').equals(email).first();
+
+        if (existingUser) {
+            emailErrorElement.textContent = "Email is already registered. Please use a different email.";
+            inputEmail.style.borderColor = "red";
+            console.log("dup");
+            return true;
+        } else {
+            return false;
+        }
+    } catch (error) {
+        console.error('Error checking email existence:', error);
+        return false;
     }
 }
 
 function validatePassword(){
     inputPass = document.getElementById("registerPassword");
     let test = true;
-    let special=false;
     if(inputPass.value.length < 8 ){
         test = false;
     }
@@ -66,6 +90,12 @@ function validatePassword(){
     }
     if (!inputPass.value.match(/[!\@\#\$\%\^\&\*]/)){
         test =false;
+    }
+
+    if (inputPass.value==""){
+        document.getElementById("passwordError").textContent =  "Please enter a password ";
+        document.getElementById("registerPassword").style.borderColor = "red";
+        return false
     }
 
     if (!test){
@@ -84,7 +114,7 @@ function validatePasswordCon(){
     if (passCon.value==""){
         document.getElementById("conPassError").textContent =  "Please enter the password again";
         document.getElementById("registerConfirm").style.borderColor = "red";
-        return
+        return false
     }
 
 
@@ -98,58 +128,118 @@ function validatePasswordCon(){
     }
 }
 
-function validateForm(){
+async function validateForm(){
     const nameValid = validateName();
     const emailValid = validateEmail();
     const passwordValid = validatePassword();
     const passwordConValid = validatePasswordCon();
-    if (nameValid && emailValid && passwordValid && passwordConValid){
+    const duplicateEmail = await isDuplicateEmail();
+    if (nameValid && emailValid && passwordValid && passwordConValid && !duplicateEmail){
         const name = document.getElementById('registerName').value;
         const email = document.getElementById('registerEmail').value;
         const password = document.getElementById('registerPassword').value;
-
-        // Add user data to the Dexie.js database
-        db.users.add({ name, email, password })
-            .then(() => {
-                console.log('User added to the database!');
-                alert('Registration successful!');
-            })
-            .catch(error => {
-                console.error('Error adding user to the database:', error);
-                alert('Error registering user: ' + error);
-            });
-
-        return true
+        try {
+            await db.users.add({ name, email, password });
+            console.log('User added to the database!');
+            return true;
+        } catch (error) {
+            console.error('Error adding user to the database:', error);
+            return false;
+        }
     }
     else{
         return false
     }
 }
 
+async function submitForm(event) {
+    event.preventDefault();
+
+    const isFormValid = await validateForm();
+
+    if (isFormValid) {
+        document.getElementById('registerForm').submit();
+    } else {
+        console.log('Form is not valid. Submission aborted.');
+    }
+}
+
+let isLoggedIn = false;
+
+function updateNavbar(username){
+    const loginIcon = document.getElementById('loginIcon');
+    const loginText = document.getElementById('loginText');
+    const name = document.getElementById('userName') 
+    const logout = document.getElementById('logoutIcon')
+
+    capitalName = username.charAt(0).toUpperCase() + username.slice(1);
+
+    loginIcon.classList.remove('d-lg-block')
+    logout.classList.remove('d-none')
+    name.textContent = capitalName
+    
+    if(loginText){
+        loginText.style.display='none'
+    }
+  }
+
 function loginUser() {
     const email = document.getElementById('inputEmail').value;
-    const password = document.getElementById('exampleInputPassword1').value;
-  
-    // Query the Dexie.js database to check if the user exists
+    const password = document.getElementById('inputPassword').value;
     db.users
       .where({ email, password })
       .first()
       .then(user => {
         if (user) {
-          // User exists, perform login actions (e.g., navigate to a new page)
-          console.log('User Logged in!');
-          alert('Login successful!');
+            document.getElementById("loginError").textContent =  "";
+            console.log('User Logged in!');
+            isLoggedIn = true;
+            updateNavbar(user.name);
+            $('#login-modal').modal('hide');
         } else {
-          // User does not exist or credentials are incorrect
           console.log('not logged!');
-          alert('Invalid email or password. Please try again.');
+          document.getElementById("loginError").textContent =  "Invalid email or password. Please try again.";
         }
       })
       .catch(error => {
         console.error('Error checking user credentials:', error);
       });
   
-    // Prevent the form from submitting
     return false;
   }
-  
+
+  function logoutUser(){
+    const loginIcon = document.getElementById('loginIcon');
+    const loginText = document.getElementById('loginText');
+    const name = document.getElementById('userName');
+    const logout = document.getElementById('logoutIcon');
+
+    loginIcon.classList.add('d-lg-block');
+    logout.classList.add('d-none');
+    name.textContent="";
+
+    if (loginText){
+        loginText.style.display='block'
+    }
+  }
+
+  document.getElementById('navbarNav').addEventListener('show.bs.collapse', function () {
+    document.getElementById('userName').style.display = 'none';
+    document.getElementById('logoutIcon').style.display = 'none';
+  });
+
+  document.getElementById('navbarNav').addEventListener('hide.bs.collapse', function () {
+    document.getElementById('userName').style.display = 'block';
+    document.getElementById('logoutIcon').style.display = 'block';
+  });
+
+  function clearUserData() {
+    db.users
+      .clear()
+      .then(() => {
+        console.log('All data cleared from the "users" store');
+      })
+      .catch(error => {
+        console.error('Error clearing data:', error);
+      });
+  }
