@@ -67,9 +67,9 @@ body {
 }
 
 .card-title {
-  font-family: 'Rubik Bubbles';
-  font-size: 2.2rem;
-  color:rgb(0, 0, 0);
+  font-family: 'Roboto';
+  font-size: 3rem;
+  color: #3498db;
   margin-bottom: 10px;
   text-align: center; 
 }
