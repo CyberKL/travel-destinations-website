@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
 
 body {
@@ -20,10 +21,12 @@ section {
 }
   .navbar-brand {
     color: white;
+    font-family: 'Roboto';
   }
 
   .navbar-nav .nav-link {
     color: white;
+    font-family: 'Roboto';
   }
 
 .pageContent {
