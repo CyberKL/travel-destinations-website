@@ -18,68 +18,6 @@ body {
     background-image: none; 
     background-color:#3498db ; 
 }
-<<<<<<< HEAD
-
-.about{
-    width: 100%;
-    min-height: 100vh;
-    background-image: url('../img/shell\ 2.jpg');
-    background-size: 100% 100%;
-}
-
-.container1{
-    width: 80%;
-    display: block;
-    margin: auto;
-    padding-top: 100px;
-
-}
-
-.container2{
-    width: 100%;
-    margin: auto;
-    padding-right: 25px;
-    padding-left: 25px;
-    padding-top: 300px;
-    padding-bottom: 300px;
-    background-color: rgb(54, 46, 62);
-    background-size: 100% 100%;
-}
-
-.more-content .goals{
-    width: 33.33%;
-    float: right;
-    padding: 5px;
-    border: 1px solid black;
-    height: auto;
-}
-
-.more-content .values{
-    width: 33.33%;
-    float: left;
-    padding: 5px;
-    border: 1px solid black;
-}
-
-.more-content .vision{
-    width: 31%;
-    margin: auto;
-    padding: 5px;
-    border: 1px solid black;
-}
-
-.more-content .field-title{
-    font-size: 25px;
-    font-weight: bold;
-    margin: 5px 5px;
-    color: aquamarine;
-}
-
-.more-content .field-content{
-    color: aliceblue;
-    font-size: 19px;
-    font-weight: bold;
-}
 
 
 
