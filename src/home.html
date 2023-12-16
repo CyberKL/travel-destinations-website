@@ -17,10 +17,10 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#" style="font-family: 'Great Vibes'; font-size: 30px;">Rehla</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler order-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+          <a class="navbar-brand mx-auto me-lg-3" href="#" style="font-family: 'Great Vibes'; font-size: 30px;">Rehla</a>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
@@ -32,18 +32,22 @@
               <li class="nav-item">
                 <a class="nav-link" href="pages/contact.html">Contact Us</a>
               </li>
-              <li class="nav-item d-md-none">
+              <li class="nav-item d-lg-none" id="loginText">
                 <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#login-modal">Login</a>
               </li>
             </ul>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item d-md-block d-none">
+                <li class="nav-item d-lg-block d-none" id="loginIcon">
                   <span type="button" class="btn-container" class="btn" data-bs-toggle="modal" data-bs-target="#login-modal">
-                    <i class="fas fa-user me-3" style="color: white; font-size: 2rem;"></i>
+                    <i class="fas fa-user" style="color: white; font-size: 2rem;"></i>
                   </span>
                 </li>
             </ul>
           </div>
+          <span id="userName" class="me-3"></span>
+          <span type="button" class="btn-container d-none" class="btn" id="logoutIcon" onclick="logoutUser()">
+            <i class="fa-solid fa-right-from-bracket" style="color: white; font-size: 2rem;"></i>
+          </span>
         </div>
     </nav>
     <!-- Navbar Ends -->

@@ -164,6 +164,25 @@ async function submitForm(event) {
     }
 }
 
+let isLoggedIn = false;
+
+function updateNavbar(username){
+    const loginIcon = document.getElementById('loginIcon');
+    const loginText = document.getElementById('loginText');
+    const name = document.getElementById('userName') 
+    const logout = document.getElementById('logoutIcon')
+
+    capitalName = username.charAt(0).toUpperCase() + username.slice(1);
+
+    loginIcon.classList.remove('d-lg-block')
+    logout.classList.remove('d-none')
+    name.textContent = capitalName
+    
+    if(loginText){
+        loginText.style.display='none'
+    }
+  }
+
 function loginUser() {
     const email = document.getElementById('inputEmail').value;
     const password = document.getElementById('inputPassword').value;
@@ -172,10 +191,13 @@ function loginUser() {
       .first()
       .then(user => {
         if (user) {
-          console.log('User Logged in!');
+            document.getElementById("loginError").textContent =  "";
+            console.log('User Logged in!');
+            isLoggedIn = true;
+            updateNavbar(user.name);
+            $('#login-modal').modal('hide');
         } else {
           console.log('not logged!');
-          alert('Invalid email or password. Please try again.');
           document.getElementById("loginError").textContent =  "Invalid email or password. Please try again.";
         }
       })
@@ -185,7 +207,32 @@ function loginUser() {
   
     return false;
   }
-  
+
+  function logoutUser(){
+    const loginIcon = document.getElementById('loginIcon');
+    const loginText = document.getElementById('loginText');
+    const name = document.getElementById('userName');
+    const logout = document.getElementById('logoutIcon');
+
+    loginIcon.classList.add('d-lg-block');
+    logout.classList.add('d-none');
+    name.textContent="";
+
+    if (loginText){
+        loginText.style.display='block'
+    }
+  }
+
+  document.getElementById('navbarNav').addEventListener('show.bs.collapse', function () {
+    document.getElementById('userName').style.display = 'none';
+    document.getElementById('logoutIcon').style.display = 'none';
+  });
+
+  document.getElementById('navbarNav').addEventListener('hide.bs.collapse', function () {
+    document.getElementById('userName').style.display = 'block';
+    document.getElementById('logoutIcon').style.display = 'block';
+  });
+
   function clearUserData() {
     db.users
       .clear()
