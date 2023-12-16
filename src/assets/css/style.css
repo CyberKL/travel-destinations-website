@@ -236,7 +236,7 @@
   }
   /* Tips Section End */
 
-  /* Login Modal Start */
+  /* Modal Start */
   input[type="email"], 
   input[type="password"],
   input[type="text"]{
@@ -253,7 +253,7 @@
   #emailHelp{
     font-size: 12px;
   }
-  /* Login Modal End */
+  /* Modal End */
 
   .errors{
     color: red;
@@ -267,4 +267,7 @@
   color: red;
   font-size: 13px;
 }
- 
+#userName{
+  font-size: 25px;
+  color: white;
+}
