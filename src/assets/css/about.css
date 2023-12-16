@@ -82,4 +82,40 @@ body {
 .card:hover {
   box-shadow: 0 9px 16px rgba(0, 0, 0, 0.2);
 }
+
+/* Modal Start */
+input[type="email"], 
+input[type="password"],
+input[type="text"]{
+  width: 265px;
+  height: 30px;
+  outline: none;
+  border: 0.5px solid #222;
+  border-radius: 5px; 
+}
+.modal-body{
+  display: flex;
+  justify-content: center;
+}
+#emailHelp{
+  font-size: 12px;
+}
+/* Modal End */
+
+.errors{
+  color: red;
+  font-size: 10px;
+  margin-top: 7px;
+  width: 265px;
+}
+#loginError{
+width:265px;
+margin-bottom: 7px;
+color: red;
+font-size: 13px;
+}
+#userName{
+font-size: 25px;
+color: white;
+}
     

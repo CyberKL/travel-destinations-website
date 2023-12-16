@@ -5,91 +5,203 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-    <link href="../assets/css/contact.css" rel="stylesheet">
-    <script src="../assets/js/bootstrap.min.js"></script>
+    <link href="../assets/css/contact.css"rel="stylesheet">
     <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/popper.js"></script>
-    <title>Contact Us</title>
+    <script defer src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
+    <script defer src="../assets/js/bootstrap.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/dexie@3.0.3/dist/dexie.js"></script>
+    <script defer src="../assets/js/home.js"></script>
+    <title>Contact Us | Rehla</title>
 </head>
 <body>
-    <body>
-  
-        <section>
-          
-          <div class="section-header">
-            <div class="container">
-              <h2>Contact Us</h2>
-              <p>You can reach us through these means of commmunication, we are available 24/7 to provide you with all you need in the Computer Science industry</p>
-            </div>      
-          </div>
-          
-          <div class="container">
-            <div class="row">
-              
-              <div class="contact-info">
-                <div class="contact-info-item">
-                  <div class="contact-info-icon">
-                    <i class="fas fa-home"></i>
-                  </div>
-                  
-                  <div class="contact-info-content">
-                    <h4>Address</h4>
-                    <p>32 baron city Ring Rd.,<br/> Mokkatam, Cairo</p>
-                  </div>
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <button class="navbar-toggler order-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand mx-auto me-lg-3" href="#" style="font-family: 'Great Vibes'; font-size: 30px;">Rehla</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../home.html" style="color: white;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/destinations.html">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/contact.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item d-lg-none" id="loginText">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#login-modal">Login</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item d-lg-block d-none" id="loginIcon">
+                        <span type="button" class="btn-container" class="btn" data-bs-toggle="modal" data-bs-target="#login-modal">
+                            <i class="fas fa-user" style="color: white; font-size: 2rem;"></i>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <span id="userName" class="me-3"></span>
+            <span type="button" class="btn-container d-none" class="btn" id="logoutIcon" onclick="logoutUser()">
+                <i class="fa-solid fa-right-from-bracket" style="color: white; font-size: 2rem;"></i>
+            </span>
+        </div>
+    </nav>
+    <!-- Navbar Ends -->
+
+    <!-- Login Start -->
+      <!-- Modal -->
+      <div class="modal fade" id="login-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5 ms-auto" id="staticBackdropLabel"><b>Login</b></h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="loginForm" onsubmit="return loginUser()">
+                <div class="mb-3">
+                  <i class="fas fa-envelope ms-1"></i>
+                  <label for="inputEmail" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" required placeholder="name@example.com">
                 </div>
-                
-                <div class="contact-info-item">
-                  <div class="contact-info-icon">
-                    <i class="fas fa-phone"></i>
-                  </div>
-                  
-                  <div class="contact-info-content">
-                    <h4>Phone</h4>
-                    <p>+20-101-155-3073</p>
-                  </div>
+                <div class="mb-3">
+                  <i class="fas fa-key ms-1"></i>
+                  <label for="inputPassword" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="inputPassword">
                 </div>
-                
-                <div class="contact-info-item">
-                  <div class="contact-info-icon">
-                    <i class="fas fa-envelope"></i>
-                  </div>
-                  
-                  <div class="contact-info-content">
-                    <h4>Email</h4>
-                   <p>ahmadgelela@gmail.com</p>
-                  </div>
+                <div id="loginError" class="text-center"></div>
+                <button type="submit" class="btn btn-primary mb-2 w-100" id="login-btn">Login</button>
+                <div class="foot">
+                  <a href="#" class="register" data-bs-toggle="modal" data-bs-target="#register-modal">Don't have an account? Register here</a>
                 </div>
-              </div>
-              
-              <div class="contact-form">
-                <form action="" id="contact-form">
-                  <h2>Send Message</h2>
-                  <div class="input-box">
-                    <input type="text" required="true" name="">
-                    <span>Full Name</span>
-                  </div>
-                  
-                  <div class="input-box">
-                    <input type="email" required="true" name="">
-                    <span>Email</span>
-                  </div>
-                  
-                  <div class="input-box">
-                    <textarea required="true" name=""></textarea>
-                    <span>Type your Message...</span>
-                  </div>
-                  
-                  <div class="input-box">
-                    <input type="submit" value="Send" name="">
-                  </div>
-                </form>
-              </div>
-              
+              </form>
             </div>
           </div>
-        </section>
-        
-      </body>
-    
+        </div>
+      </div>
+    <!-- Login End -->
+
+    <!-- Register Section Start -->
+    <div class="modal fade" id="register-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5 ms-auto" id="staticBackdropLabel"><b>Register</b></h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="registerForm" onsubmit="submitForm(event)" novalidate>
+              <div class="mb-3">
+                <i class="fas ms-1"></i>
+                <label for="registerName" class="form-label">Name</label>
+                <input type="text" class="form-control" id="registerName" required onblur="filled(id,'nameError')" onfocus="style.borderColor = '#222';">
+                <div id="nameError" class="errors"></div>
+              </div>
+              <div class="mb-3">
+                <i class="fas fa-envelope ms-1"></i>
+                <label for="inputEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="registerEmail" aria-describedby="emailHelp" required placeholder="name@example.com" onblur="filled(id,'emailError')" onfocus="style.borderColor = '#222';">
+                <div id="emailError" class="errors"></div>
+                <div id="emailHelp" class="form-text ms-2">We'll never share your email with anyone else.</div>
+              </div>
+              <div class="mb-3">
+                <i class="fas fa-key ms-1"></i>
+                <label for="registerPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="registerPassword" onblur="filled(id,'passwordError')" onfocus="style.borderColor = '#222';">
+                <div id="passwordError" class="errors"></div>
+              </div>
+              <div class="mb-3">
+                <label for="registerConfirm" class="form-label ms-1">Confirm password</label>
+                <input type="password" class="form-control" id="registerConfirm" onblur="filled(id,'conPassError')" onfocus="style.borderColor = '#222';">
+                <div id="conPassError" class="errors"></div>
+              </div>
+              <button type="submit" class="btn btn-primary mb-2 w-100" id="register-btn">Register</button>
+              <div class="foot">
+                <a href="#" class="register" data-bs-toggle="modal" data-bs-target="#login-modal">Already have an account? Login here</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Register Section End -->
+
+    <section>
+        <div class="container">
+            <div class="section-header mt-5">
+                <h2>Contact Us</h2>
+                <p>You can reach us through these means of communication; we are available 24/7 to provide you with all you need in the Computer Science industry</p>
+            </div>      
+            <div class="pageContent">
+                <div class="row">
+                    <div class="contact-info">
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h4>Address</h4>
+                                <p>32 Baron City Ring Rd.,<br/> Mokkatam, Cairo</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h4>Phone</h4>
+                                <p>+20-101-155-3073</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h4>Email</h4>
+                                <p>ahmadgelela@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form action="" id="contact-form">
+                            <h2>Send Message</h2>
+                            <div class="input-box">
+                                <input type="text" required="true" name="">
+                                <span>Full Name</span>
+                            </div>
+                            <div class="input-box">
+                                <input type="email" required="true" name="">
+                                <span>Email</span>
+                            </div>
+                            <div class="input-box">
+                                <textarea required="true" name=""></textarea>
+                                <span>Type your Message...</span>
+                            </div>
+                            <div class="input-box">
+                                <input type="submit" value="Send" name="">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Start -->
+    <footer class="bg-dark text-light text-center py-3">
+        <div class="container">
+            <p>&copy; 2023 Rehla. All rights reserved. | 
+                <a href="about.html" class="text-light">About Us</a> | 
+                <a href="contact.html" class="text-light">Contact Us</a>
+            </p>
+        </div>
+    </footer>
+    <!-- Footer End -->
 </body>
 </html>
