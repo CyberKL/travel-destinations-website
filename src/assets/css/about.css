@@ -1,181 +1,84 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Rubik+Bubbles&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(244, 244, 244);
+}
 *{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto';
+  }
+  /* Nav bar */
+  .navbar {
+    background-image: none; 
+    background-color:#3498db ; 
+}
+    .navbar-brand {
+      color: white;
+    }
+  
+    .navbar-nav .nav-link {
+      color: white;
+    }
+  
+    #title{
+      font-weight: bold;
+      font-family: 'Great Vibes';
+    }
+    .home-title{
+      background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,1)), url(../img/background.jpg);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+      height: 100vh;
+      color: white;
+    }
+    .home-title .lead{
+      text-shadow: 0px 0px 1px black;
+    }
+    .home-title .container{
+      padding-top: 20vh;
+    }
+   
+    .container h1 {
+      font-size: 62px;
+      font-weight: bold;
+      font-family: 'Rubik Doodle Shadow', sans-serif;
+      color: #3498db;
+  }
+  .container p {
+    line-height: 1.6;
+}
+.card {
+  border: 1px solid #ccc; 
+  border-radius: 12px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  padding: 20px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.about{
-    width: 100%;
-    min-height: 100vh;
-    background-image: url('../img/shell\ 2.jpg');
-    background-size: 100% 100%;
+.card-title {
+  font-family: 'Rubik Bubbles';
+  font-size: 2.2rem;
+  color:rgb(0, 0, 0);
+  margin-bottom: 10px;
+  text-align: center; 
 }
 
-.container{
-    width: 80%;
-    display: block;
-    margin: auto;
-    padding-top: 100px;
-
+.card-text {
+  font-size: 1rem; 
+  color: #666; 
+  line-height: 1.5; 
 }
-
-.container2{
-    width: 100%;
-    margin: auto;
-    padding-right: 25px;
-    padding-left: 25px;
-    padding-top: 300px;
-    padding-bottom: 300px;
-    background-color: rgb(54, 46, 62);
-    background-size: 100% 100%;
+.card:hover {
+  box-shadow: 0 9px 16px rgba(0, 0, 0, 0.2);
 }
-
-.more-content .goals{
-    width: 33.33%;
-    float: right;
-    padding: 5px;
-    border: 1px solid black;
-    height: auto;
-}
-
-.more-content .values{
-    width: 33.33%;
-    float: left;
-    padding: 5px;
-    border: 1px solid black;
-}
-
-.more-content .vision{
-    width: 31%;
-    margin: auto;
-    padding: 5px;
-    border: 1px solid black;
-}
-
-.more-content .field-title{
-    font-size: 25px;
-    font-weight: bold;
-    margin: 5px 5px;
-    color: aquamarine;
-}
-
-.more-content .field-content{
-    color: aliceblue;
-    font-size: 19px;
-    font-weight: bold;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.content-about{
-    float: left;
-    width: 55%;
-}
-
-.image-container{
-    float: right;
-    width: 40%;
-}
-
-.image-container img{
-    width: 100%;
-    border-radius: 10px;
-    height: auto;
-
-}
-
-.content-about .title h1{
-    text-transform: uppercase;
-    font-size: 35px;
-    font-weight: bolder;
-    color: rgb(174, 174, 245);
-}
-
-.content-about .content h3{
-    margin-top: 20px;
-    color: #857ce6;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.content-about .content p{
-    margin-top: 10px;
-    font-family: sans-serif;
-    font-size: 23px;
-    line-height: 1.5;
-    color: rgb(45, 45, 229);
-
-}
-
-.content-about .content .button{
-    margin-top: 30px;
-}
-
-.content-about .content .button a{
-    background-color: #3d3d3d;
-    padding: 12px 40px;
-    text-decoration: none;
-    color: #fff;
-    font-size: 25px;
-    letter-spacing: 1.5px;
-}
-
-.content-about .content .button a:hover{
-    background-color: #a52a2a;
-    color: #fff;
-}
-
-@media screen and (max-width: 768px) {
-    .container{
-        width: 80%;
-        display: block;
-        margin: auto;
-        padding-top: 50px;
     
-    }
-    .content-about{
-        float: none;
-        width: 100%;
-        display: block;
-        margin: auto;
-    }
-    .image-container{
-        float: none;
-        width: 100%;
-    }
-    .image-container img{
-        width: 100%;
-        height: auto;
-        display: block;
-        margin: 30px;
-    }
-    .content-about .title{
-        font-size: 30px;
-        text-align: center;
-    }
-    .content-about .content .button{
-        text-align: center;
-
-    }
-    .content-about .content .button a{
-        padding: 9px 30px;
-    }
-}
